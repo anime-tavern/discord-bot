@@ -16,6 +16,7 @@ module.exports = {
 	messageMatrix:[
 		["i", "need", "a", "drink"],
 		['with', 'a', 'drink'],
+		[/(can|could|may)/,'i','a','drink'],
 		['set','up','a','drink'],
 		['serve','me','drink'],
 		['serve','us',/drinks*/],
