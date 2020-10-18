@@ -9,25 +9,37 @@ for (let key of Object.keys(environmentData)){
 };
 
 const Discord = require("discord.js");
+const matrixSearch = require("./utils/matrixSearch.js");
 const client = new Discord.Client();
+const commands = [];
+
+// Load commands
+const commandFiles = fs.readdirSync("./commands").filter( file => { return file.endsWith(".js") } );
+for (const file of commandFiles){
+	const command = require(`./commands/${file}`);
+	commands.push(command);
+}
 
 client.once("ready", () => {
-	console.log("Tavern Maid is ready");
+	console.log("Oi! The tavern girl is ready to serve!");
 });
 
 client.on("message", message => {
+
+	if (message.author.bot){
+		console.log(`A bot has spoken. Ignoring.`);
+		return;
+	}
+
 	msgContent = message.content;
 	msgContent_lower = msgContent.toLowerCase();
-	console.log(msgContent_lower);
-	if (msgContent_lower === "i need a drink"){
 
-		const embed = new Discord.MessageEmbed();
-		embed.setTitle("Drink up!");
-		embed.attachFiles([
-			"./images/drink-up-1.png"
-		]);
-		embed.setImage("attachment://drink-up-1.png");
-		message.channel.send(embed);
+	// Test all commands for a match
+	for (const command of commands){
+		const matrixMatched = matrixSearch(msgContent_lower, command.messageMatrix);
+		if (matrixMatched){
+			message.channel.send(command.fire(message));
+		}
 	}
 });
 
