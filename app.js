@@ -13,6 +13,10 @@ const matrixSearch = require("./utils/matrixSearch.js");
 const client = new Discord.Client();
 const commands = [];
 
+// Classes
+const ChannelIDs = require("./classes/ChannelIDs");
+const NewMemberHandler = require("./classes/NewMemberHandler");
+
 // Load commands
 const commandFiles = fs.readdirSync("./commands").filter( file => { return file.endsWith(".js") } );
 for (const file of commandFiles){
@@ -22,6 +26,11 @@ for (const file of commandFiles){
 
 client.once("ready", () => {
 	console.log("Oi! The tavern girl is ready to serve!");
+	NewMemberHandler.client = client;
+});
+
+client.on("guildMemberAdd", member => {
+	NewMemberHandler.onNewMemberJoined(member);
 });
 
 client.on("message", message => {
