@@ -14,7 +14,7 @@ class NewMemberHandler{
 	*/
 	async onNewMemberJoined(member){
 		console.log(`Fetching channel ${String(ChannelIDs.welcomeChannel)}`);
-		const welcomeChannel = await this.client.channels.fetch(String(ChannelIDs.welcomeChannel));
+		const welcomeChannel = await this.client.channels.fetch(String(ChannelIDs.welcomeChannel), true, true);
 		welcomeChannel.send(`Grab a drink, ${member}`);
 		console.log(`Sent welcome message`);
 	}
