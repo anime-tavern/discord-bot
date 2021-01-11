@@ -27,7 +27,7 @@ for (const file of commandFiles){
 client.once("ready", async () => {
 	console.log("Oi! The tavern girl is ready to serve!");
 	NewMemberHandler.client = client;
-	console.log((await client.channels.fetch(ChannelIDs.welcomeChannel)));
+	console.log((await client.channels.fetch(739860765200351235)));
 });
 
 client.on("guildMemberAdd", member => {
