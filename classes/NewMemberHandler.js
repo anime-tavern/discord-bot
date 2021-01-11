@@ -15,7 +15,27 @@ class NewMemberHandler{
 	async onNewMemberJoined(member){
 		const welcomeChannel = await this.client.channels.fetch(ChannelIDs.welcomeChannel);
 		welcomeChannel.send(`Grab a drink, ${member}`);
-		console.log(`Sent welcome message`);
+	}
+
+	/**
+	* Gets a string message welcoming the new member
+	* @param {Member} member
+	* @returns {string}
+	*/
+	getNewMemberMessage(member){
+		const messages = [
+			`Grab a drink, ${member}`,
+			`We're serving more than just drinks, ${member}!`,
+			`${member}, glad you're here! A barfight just happened.`,
+			`${member} is here for their bread and wine.`,
+			`${member} is the new weeb in the Tavern.`,
+			`Ready for a cold one and a cold heart ${member}?`,
+			`Well, if it isn't the patron, ${member}. Care for a round?`,
+			`Drinks on us today, ${member}!`,
+			`You've joined the Anime Tavern, ${member}. Food is waiting :)`
+		];
+
+		return messages[Math.floor(Math.random() * messages.length)];
 	}
 }
 
