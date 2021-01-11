@@ -17,6 +17,9 @@ const commands = [];
 const ChannelIDs = require("./classes/ChannelIDs");
 const NewMemberHandler = require("./classes/NewMemberHandler");
 
+// Set singleton properties
+NewMemberHandler.client = client;
+
 // Load commands
 const commandFiles = fs.readdirSync("./commands").filter( file => { return file.endsWith(".js") } );
 for (const file of commandFiles){
@@ -26,7 +29,6 @@ for (const file of commandFiles){
 
 client.once("ready", async () => {
 	console.log("Oi! The tavern girl is ready to serve!");
-	NewMemberHandler.client = client;
 });
 
 client.on("guildMemberAdd", member => {
@@ -34,11 +36,11 @@ client.on("guildMemberAdd", member => {
 	NewMemberHandler.onNewMemberJoined(member);
 });
 
-client.on("debug", console.log);
-
-client.on("message", message => {
+client.on("message", async message => {
 
 	console.log(`${message.channel}`);
+	const channel = await client.channels.fetch(message.channel.id);
+	console.log(channel);
 
 	if (message.author.bot){
 		console.log(`A bot has spoken. Ignoring.`);
