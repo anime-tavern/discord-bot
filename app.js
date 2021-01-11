@@ -24,7 +24,7 @@ for (const file of commandFiles){
 	commands.push(command);
 }
 
-client.once("ready", () => {
+client.once("ready", async () => {
 	console.log("Oi! The tavern girl is ready to serve!");
 	NewMemberHandler.client = client;
 	console.log((await client.channels.fetch(ChannelIDs.welcomeChannel)));
