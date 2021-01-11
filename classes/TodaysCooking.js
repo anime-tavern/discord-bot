@@ -1,3 +1,5 @@
+const StringUtil = require("./StringUtil");
+
 class TodaysCooking{
 	constructor(){
 		/** @property {number} lastSet The last time the item cooking was changed */
@@ -91,11 +93,11 @@ class TodaysCooking{
 			`This evening we're serving ${this.currentItem}.`,
 			`Be prepared to enjoy the chef's ${this.currentItem}.`,
 			`You'll never live down our delicious ${this.currentItem} today :)`,
-			`${this.currentItem}.`,
-			`${this.currentItem}, and if you don't like it try the trash tavern down the road.`,
-			`${this.currentItem}. Enjoy :)`,
-			`${this.currentItem}. Stop by later tonight, okay?`,
-			`${this.currentItem} and probably some dessert. We're not sure which...`,
+			`${StringUtil.capitalizeFirstLetter(this.currentItem)}.`,
+			`${StringUtil.capitalizeFirstLetter(this.currentItem)}, and if you don't like it try the trash tavern down the road.`,
+			`${StringUtil.capitalizeFirstLetter(this.currentItem)}. Enjoy :)`,
+			`${StringUtil.capitalizeFirstLetter(this.currentItem)}. Stop by later tonight, okay?`,
+			`${StringUtil.capitalizeFirstLetter(this.currentItem)} and probably some dessert. We're not sure which...`,
 			`Just ${this.currentItem} tonight.`,
 		];
 
