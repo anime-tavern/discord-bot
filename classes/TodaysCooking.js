@@ -58,7 +58,7 @@ class TodaysCooking{
 	*/
 	setNewItem(){
 		this.lastSet = (new Date()).getTime();
-		this.currentItem = getRandomMenuItem();
+		this.currentItem = this.getRandomMenuItem();
 	}
 
 	/**
