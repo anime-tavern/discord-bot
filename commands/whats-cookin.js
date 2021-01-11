@@ -20,6 +20,9 @@ module.exports = {
 		["tonight's", "menu"],
 		["what're", "we", "havin"],
 		["what", "to", "eat"],
+		["whatcha", "to", "eat"],
+		["do", "have", "food"],
+		["kinda", "food"],
 		["im", "hungry"],
 	]
 };
