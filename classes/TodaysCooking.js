@@ -36,7 +36,7 @@ class TodaysCooking{
 			this.setNewItem();
 		}
 
-		const timeUntilMenuChanges = this.timeUntilMenuChanges();
+		const timeUntilMenuChanges = this.getTimeLeftOnCurrentMenuItem();
 
 		if (timeUntilMenuChanges <= 0){
 			this.setNewItem();
