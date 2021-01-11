@@ -34,6 +34,8 @@ client.on("guildMemberAdd", member => {
 	NewMemberHandler.onNewMemberJoined(member);
 });
 
+client.on("debug", console.log);
+
 client.on("message", message => {
 
 	if (message.author.bot){
