@@ -38,10 +38,6 @@ client.on("guildMemberAdd", member => {
 
 client.on("message", async message => {
 
-	console.log(`${message.channel}`);
-	const channel = await client.channels.fetch(message.channel.id);
-	console.log(channel);
-
 	if (message.author.bot){
 		console.log(`A bot has spoken. Ignoring.`);
 		return;
