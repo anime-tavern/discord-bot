@@ -24,10 +24,10 @@ class NewMemberHandler{
 	*/
 	getNewMemberMessage(member){
 		const messages = [
-			`Grab a drink, ${member}`,
 			`We're serving more than just drinks, ${member}!`,
 			`${member}, glad you're here! A barfight just happened.`,
 			`${member} is here for their bread and wine.`,
+			`Grab a drink, ${member}`,
 			`${member} is the new weeb in the Tavern.`,
 			`Ready for a cold one and a cold heart ${member}?`,
 			`Well, if it isn't the patron, ${member}. Care for a round?`,
