@@ -30,6 +30,7 @@ client.once("ready", () => {
 });
 
 client.on("guildMemberAdd", member => {
+	console.log(`New member joined`);
 	NewMemberHandler.onNewMemberJoined(member);
 });
 
