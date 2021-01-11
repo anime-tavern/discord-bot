@@ -38,7 +38,7 @@ client.on("debug", console.log);
 
 client.on("message", message => {
 
-	console.log(`message.channel`);
+	console.log(`${message.channel}`);
 
 	if (message.author.bot){
 		console.log(`A bot has spoken. Ignoring.`);
